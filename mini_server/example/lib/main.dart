@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 ValueNotifier<int> value = ValueNotifier(0);
 void main() {
   final miniServer = MiniServer(
-    host: 'localhost',
+    host: '10.0.0.146',
     port: 8080,
   );
 
