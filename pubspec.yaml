@@ -1,7 +1,7 @@
 name: mini_server
 description: A new Flutter package project.
 version: 1.0.0
-homepage:
+homepage: https://github.com/cristianpaulo4/mini_server/tree/main/mini_server
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
