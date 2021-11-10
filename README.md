@@ -58,7 +58,7 @@ Note :
 If you want to test the example, replace the "localhost" with the current "IP" of the computer. Access your mobile browser on the url add your IP with the previously configured port, ex: 10.0.0.145:8080.
 keep updating the page and see the counter increment.
 ```
- import 'dart:io';
+import 'dart:io';
 import 'package:mini_server/mini_server.dart';
 import 'package:flutter/material.dart';
 
