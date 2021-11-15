@@ -11,7 +11,15 @@ Note: This server only works while the application is open.
 - PUT
 - DELETE
 
-### Step - 1
+### Step -1
+```
+mini_server:
+    git:
+      url: "https://github.com/cristianpaulo4/mini_server"
+      ref: "main"
+```
+
+### Step - 2
 ----
 Import the dependencies
 ```
@@ -20,7 +28,8 @@ import 'package:mini_server/mini_server.dart';
 
 ```
 
-### Step - 2
+
+### Step - 3
 ----
 Create an instance
 ```
@@ -31,7 +40,7 @@ final miniServer = MiniServer(
 
 ```
 
-### Step - 3
+### Step - 4
 ----
 Generate your routes
 ```
