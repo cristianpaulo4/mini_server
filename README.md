@@ -13,10 +13,7 @@ Note: This server only works while the application is open.
 
 ### Step -1
 ```
-mini_server:
-    git:
-      url: "https://github.com/cristianpaulo4/mini_server"
-      ref: "main"
+add dependecy in pubspec
 ```
 
 ### Step - 2
