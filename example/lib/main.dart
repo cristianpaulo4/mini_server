@@ -3,9 +3,9 @@ import 'package:mini_server/mini_server.dart';
 import 'package:flutter/material.dart';
 
 ValueNotifier<int> value = ValueNotifier(0);
-void main() {
+void main() {  
   final miniServer = MiniServer(
-    host: '10.0.0.146',
+    host: 'localhost',
     port: 8080,
   );
 
@@ -15,13 +15,13 @@ void main() {
   });
 
   miniServer.post("/test", (HttpRequest httpRequest) async {
-    final res = await MiniResponse().init(httpRequest);
+    MiniResponse res = await MiniResponse.instance.init(httpRequest);      
     return httpRequest.response.write(res.parameters);
   });
 
   miniServer.post("/test02", (HttpRequest httpRequest) async {
-    final res = await MiniResponse().init(httpRequest);
-    return httpRequest.response.write(res.body);
+    final res = await MiniResponse.instance.init(httpRequest);
+    return httpRequest.response.write(res);
   });
 
   runApp(const MyApp());

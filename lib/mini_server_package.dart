@@ -1,14 +1,21 @@
 import 'dart:io';
 
 class MiniServer {
-  final String host;
-  final int port;
-  MiniServer({
-    required this.host,
-    required this.port,
-  }) {
+  MiniServer._(){
     _init();
   }
+
+  static late String _host;
+  static late int _port;
+  static final MiniServer _instance = MiniServer._();
+  static MiniServer get instance => _instance;  
+
+  factory MiniServer({required String host, required int port}) {
+    _host = host;
+    _port = port;   
+    return _instance;
+  }
+
 
   List<String>? _routerGet = [];
   List<Function> listFucoesGet = [];
@@ -44,7 +51,7 @@ class MiniServer {
   }
 
   Future<void> _init() async {
-    var server = await HttpServer.bind(host, port);
+    var server = await HttpServer.bind(_host, _port);
     server.listen((req) async {
       switch (req.method) {
         case "GET":

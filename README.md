@@ -47,12 +47,12 @@ Generate your routes
   });
 
   miniServer.post("/test", (HttpRequest httpRequest) async {
-    final res = await MiniResponse().init(httpRequest);
+    MiniResponse res = await MiniResponse.instance.init(httpRequest);
     return httpRequest.response.write(res.parameters);
   });
 
   miniServer.post("/test02", (HttpRequest httpRequest) async {
-    final res = await MiniResponse().init(httpRequest);
+    final res = await MiniResponse.instance.init(httpRequest);
     return httpRequest.response.write(res.body);
   });
 
@@ -81,12 +81,12 @@ void main() {
   });
 
   miniServer.post("/test", (HttpRequest httpRequest) async {
-    final res = await MiniResponse().init(httpRequest);
+    MiniResponse res = await MiniResponse.instance.init(httpRequest); 
     return httpRequest.response.write(res.parameters);
   });
 
   miniServer.post("/test02", (HttpRequest httpRequest) async {
-    final res = await MiniResponse().init(httpRequest);
+    final res = await MiniResponse.instance.init(httpRequest);
     return httpRequest.response.write(res.body);
   });
 
