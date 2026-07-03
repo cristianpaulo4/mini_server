@@ -4,20 +4,22 @@ version: 2.0.0
 homepage: https://github.com/cristianpaulo4/mini_server/tree/main/mini_server
 
 environment:
-  sdk: ">=2.12.0 <4.0.0"
+  sdk: ">=2.17.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  mini_server_annotations: any
+  analyzer: any
+  build: any
+  source_gen: any
+  meta: ^1.7.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
   build_runner: any
-  mini_server_generator: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

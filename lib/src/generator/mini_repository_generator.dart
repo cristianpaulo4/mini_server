@@ -1,7 +1,7 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
 import 'package:source_gen/source_gen.dart';
-import 'package:mini_server_annotations/mini_server_annotations.dart';
+import 'package:mini_server/mini_server.dart';
 
 class MiniRepositoryGenerator extends GeneratorForAnnotation<MiniRepository> {
   @override

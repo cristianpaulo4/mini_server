@@ -1,6 +1,7 @@
 library mini_server;
 
 export 'src/client.dart';
+export 'src/annotations.dart';
 export 'src/options.dart';
 export 'src/response.dart';
 export 'src/error.dart';

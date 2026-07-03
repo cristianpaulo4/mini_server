@@ -25,8 +25,6 @@ dependencies:
     sdk: flutter
   mini_server:
     path: ../
-  mini_server_annotations:
-    path: ../mini_server_annotations
   sqflite: ^2.3.0
   path_provider: ^2.1.1
   path: ^1.8.3
@@ -36,8 +34,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.4.6
-  mini_server_generator:
-    path: ../mini_server_generator
   flutter_lints: ^2.0.0
 
   # The following adds the Cupertino Icons font to your application.
@@ -85,3 +81,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+

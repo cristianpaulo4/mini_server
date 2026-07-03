@@ -1,13 +1,13 @@
 targets:
   $default:
     builders:
-      mini_server_generator|mini_repository:
+      mini_server|mini_repository:
         enabled: true
 
 builders:
   mini_repository:
-    target: ":mini_server_generator"
-    import: "package:mini_server_generator/mini_server_generator.dart"
+    target: ":mini_server"
+    import: "package:mini_server/mini_server_generator.dart"
     builder_factories: ["miniRepositoryBuilder"]
     build_extensions: { ".dart": [".mini_repository.g.part"] }
     auto_apply: dependents

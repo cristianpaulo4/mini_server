@@ -10,7 +10,7 @@ packages:
     source: hosted
     version: "92.0.0"
   analyzer:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: analyzer
       sha256: "70e4b1ef8003c64793a9e268a551a82869a8a96f39deb73dea28084b0e8bf75e"
@@ -42,7 +42,7 @@ packages:
     source: hosted
     version: "2.1.0"
   build:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: build
       sha256: a156715e7cd728130c592f30552575908aae5b100005fbc1f0fb16b3c03a3d10
@@ -300,7 +300,7 @@ packages:
     source: hosted
     version: "0.13.0"
   meta:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: meta
       sha256: "1741988757a65eb6b36abe716829688cf01910bbf91c34354ff7ec1c3de2b349"
@@ -315,20 +315,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
-  mini_server_annotations:
-    dependency: "direct main"
-    description:
-      path: mini_server_annotations
-      relative: true
-    source: path
-    version: "1.0.0"
-  mini_server_generator:
-    dependency: "direct dev"
-    description:
-      path: mini_server_generator
-      relative: true
-    source: path
-    version: "1.0.0"
   package_config:
     dependency: transitive
     description:
@@ -391,7 +377,7 @@ packages:
     source: sdk
     version: "0.0.0"
   source_gen:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: source_gen
       sha256: ec37cc0e6694374cbef59ed79685572c870a54ede6fa30a3e420feb3adffea02
