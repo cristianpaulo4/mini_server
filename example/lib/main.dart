@@ -1,71 +1,54 @@
-import 'dart:io';
-import 'package:mini_server/mini_server.dart';
 import 'package:flutter/material.dart';
+import 'package:mini_server/mini_server.dart';
+import 'package:provider/provider.dart';
+import 'repositories/todo_repository.dart';
+import 'repositories/todo_repository_local.dart';
+import 'providers/todo_provider.dart';
+import 'pages/todo_page.dart';
 
-ValueNotifier<int> value = ValueNotifier(0);
-void main() {  
-  final miniServer = MiniServer(
-    host: 'localhost',
-    port: 8080,
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Instanciação ÚNICA do nó de rede e repositórios para todo o ciclo de vida do app
+  final node = MiniNode(
+    mode: NetworkMode.server, // Inicia como Servidor/Local por padrão
+    friendlyName: 'Meu Dispositivo P2P',
+    repositories: [
+      TodoRepositoryProxy(localImpl: TodoRepositoryLocal()),
+    ],
   );
 
-  miniServer.get("/", (HttpRequest httpRequest) async {
-    value.value++;
-    return httpRequest.response.write(value.value);
-  });
+  // Callback automático para conexões locais
+  node.onConnectionRequest = (clientName) async {
+     print("Acesso solicitado por: $clientName");
+     return true; // Aceita conexões automaticamente no exemplo
+  };
 
-  miniServer.post("/test", (HttpRequest httpRequest) async {
-    MiniResponse res = await MiniResponse.instance.init(httpRequest);      
-    return httpRequest.response.write(res.parameters);
-  });
+  // Inicia o servidor local de cara para atuar de forma standalone no SQLite
+  await node.start();
 
-  miniServer.post("/test02", (HttpRequest httpRequest) async {
-    final res = await MiniResponse.instance.init(httpRequest);
-    return httpRequest.response.write(res);
-  });
-
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => TodoProvider(repository: node.get<TodoRepository>(), node: node),
+      child: MyApp(node: node),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final MiniNode node;
+  const MyApp({super.key, required this.node});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Mini Server P2P',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ValueListenableBuilder(
-        valueListenable: value,
-        builder: (_, value, __) {
-          return Center(
-            child: Text(
-              "$value",
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 100,
-              ),
-            ),
-          );
-        },
-      ),
+      home: const TodoScreen(),
     );
   }
 }

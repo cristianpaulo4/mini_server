@@ -1,4 +1,11 @@
 library mini_server;
-export 'mini_response.dart';
-export 'package:mini_server/mini_server_package.dart';
 
+export 'src/client.dart';
+export 'src/options.dart';
+export 'src/response.dart';
+export 'src/error.dart';
+export 'src/interceptors.dart';
+export 'src/node.dart';
+export 'src/server.dart';
+export 'src/discovery.dart';
+export 'src/proxy.dart';

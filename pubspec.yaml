@@ -1,6 +1,6 @@
 name: mini_server
-description: Mini http server.
-version: 1.1.0
+description: Um mini cliente HTTP para Dart/Flutter inspirado no Axios.
+version: 2.0.0
 homepage: https://github.com/cristianpaulo4/mini_server/tree/main/mini_server
 
 environment:
@@ -10,11 +10,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  mini_server_annotations:
+    path: ./mini_server_annotations
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+  build_runner: any
+  mini_server_generator:
+    path: ./mini_server_generator
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
