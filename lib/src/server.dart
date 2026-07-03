@@ -77,7 +77,7 @@ class MiniServer {
        var handler = _routes[verb]![path]!;
        
        dynamic bodyData;
-       if (verb == 'POST' || verb == 'PUT') {
+       if (verb == 'POST' || verb == 'PUT' || verb == 'DELETE') {
          String content = await utf8.decoder.bind(request).join();
          if (content.isNotEmpty) {
             bodyData = jsonDecode(content);
