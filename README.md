@@ -26,16 +26,11 @@ Adicione as dependências do ecossistema nos seus respectivos pacotes:
 dependencies:
   flutter:
     sdk: flutter
-  mini_server:
-    path: /caminho/para/mini_server
-  mini_server_annotations:
-    path: /caminho/para/mini_server_annotations
+  mini_server: ^2.0.0
   provider: ^6.1.1 # Opcional para gerenciamento de estado
 
 dev_dependencies:
   build_runner: ^2.4.6
-  mini_server_generator:
-    path: /caminho/para/mini_server_generator
 ```
 
 ---
@@ -65,7 +60,6 @@ class Todo {
 
 ```dart
 // lib/repositories/todo_repository.dart
-import 'package:mini_server_annotations/mini_server_annotations.dart';
 import 'package:mini_server/mini_server.dart';
 import '../models/todo.dart';
 
